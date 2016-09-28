@@ -1,7 +1,22 @@
 # ola-latex
-Curso despretensioso sobre latex, git e R
+Curso despretensioso sobre latex, git e R destinado aos membros do grupo de pesquisa "[Ecologia e Evolução de Plantas da Amazônia](http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=inicio)" do curso de pós-graduação em Botânica do INPA.
 
 ---------------
+
+## Informações gerais
+
+Data: 28-29 de setembro de 2016
+
+Local: Sala de aula do PPGBOT-INPA
+
+Horário: aulas pela tarde, 14:00-18:00 h
+
+Quem vai ministrar: Ricardo Perdiz, doutorando PPGBOT INPA.
+
+
+---------------
+
+## Instruções de instalação
 
 **TeX**
 
@@ -39,3 +54,9 @@ Vejam instruções [aqui](https://git-scm.com/book/en/v2/Getting-Started-Install
 **EXTRA**
 
 Se vocês tiverem algum organizador de referência bibliográfica, atualizem. Se não tiverem, instalem. De preferência, que possam lidar com arquivos .bib (JabRef, Mendeley etc.).
+
+---------------
+
+## Dados
+
+Baixem os dados disponíveis [aqui](http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=alunos:r.perdiz:arquivos:inicio).
