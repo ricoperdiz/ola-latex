@@ -1,5 +1,6 @@
 # ola-latex
 Curso despretensioso sobre latex, git e R destinado aos membros do grupo de pesquisa "[Ecologia e Evolução de Plantas da Amazônia](http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=inicio)" do curso de pós-graduação em Botânica do INPA.
+
 O objetivo é facilitar o trabalho em equipe na produção de trabalhos científicos, envolvendo tratamentos taxonômicos, comunidade arbórea, filogenia, biogeografia e filogeografia.
 
 ---------------
