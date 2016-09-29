@@ -1,0 +1,208 @@
+---
+title: "Básico de Rmarkdown"
+author: "Ricardo Perdiz"
+date: '`r format(Sys.Date(), "%d %B %Y")`'
+output: pdf_document
+#fontfamily: helvet
+#fontsize: 12pt
+csl: biotropica.csl
+bibliography: virua.bib
+link-citations: true
+---
+
+````{r, include=FALSE,message=FALSE,error=FALSE,warning=FALSE}
+libs <- c('tidyverse','pryr','magrittr','lubridate','knitr',
+          'xtable','VennDiagram','ggmap','OpenStreetMap')
+sapply(libs, library, character.only=T,logical.return=T)
+source('/Users/ricoperdiz/scripts/mocidade/R/funcoes.R')
+
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE, error = FALSE, fig.align="center")
+############################################################
+#
+# CARREGA AREA DE TRABALHO  CONTENDO TODOS OBJETOS
+#
+############################################################
+load('/Users/ricoperdiz/scripts/mocidade/output/mocidade.RData' )
+````
+
+```{r}
+mapa + geom_point(aes(x = LONGITUDE, y = LATITUDE, color = 
+                          BASE), data = dad.map)
+```
+\newpage
+# Análise exploratória de dados
+
+## Quantidade de coletas por grupo
+
+```{r}
+print(p.colgroup)
+```
+
+```{r}
+knitr::kable(select(n.coletas, GRUPO, QUANTIDADE))
+```
+
+\newpage
+
+## Quantidade de famílias por grupo e base
+
+```{r}
+print(p.familias)
+```
+
+```{r}
+knitr::kable(select(n.familias, GRUPO, QUANTIDADE))
+```
+
+\newpage
+
+## Quantidade de gêneros por grupo e base
+
+```{r}
+print(p.generos)
+```
+
+```{r}
+knitr::kable(n.generos)
+```
+
+\newpage
+
+## Quantas (morfo)espécies por grupo e base
+
+```{r}
+print(p.especies)
+```
+
+```{r}
+knitr::kable(n.spp)
+```
+
+\newpage
+
+## Quantas (morfo)espécies por família de angiospermas
+
+```{r}
+n.spp_perfamily.plot
+```
+
+```{r}
+n.spp_perfamily %>%
+    filter(FAMILY != '') %>%
+    select('FAMÍLIA' = FAMILY, 'QUANTIDADE' = NUMERO) %>%
+    knitr::kable(.)
+```
+
+\newpage
+
+## Quantidade de espécies por grupo e base
+
+```{r}
+n.spp %>%
+    filter(!is.na(BASE)) %>%
+    select(GRUPO, BASE, 'QUANTIDADE' = NUMERO) %>%
+    knitr::kable(.)
+```
+
+\newpage
+
+## Novos registros para RR
+```{r}
+new.reg.plots
+```
+
+Dados de novos registros foram baseados em @BFG2015 para angiospermas, @prado2015 para licófitas e samambaias, e @costa2015 para briófitas. Informações também foram compiladas de @taylor2015.
+
+Abaixo, segue a lista de novos registros.
+
+```{r}
+new.fam.rr %>% select(GRUPO, 'FAMÍLIA' = FAMILY) %>% knitr::kable(.)
+new.gen.rr %>% select(GRUPO, 'GÊNERO' = GENUS) %>% knitr::kable(.)
+new.spp.rr %>% select(GRUPO, 'ESPÉCIE' = NOME) %>% knitr::kable(.)
+```
+
+\newpage
+
+## Mapas
+
+```{r}
+mapa.b3 + geom_point(aes(x = LONGITUDE, y = LATITUDE, color =
+    DATA_COLETA), data = dad.b3) + ggtitle('Pontos por dia de coleta nas bases 2')
+```
+
+\newpage
+
+## Mapas
+
+```{r}
+mapa.b3 + geom_point(aes(x = LONGITUDE, y = LATITUDE, color = 
+    DATA_COLETA), data = full_join(dad.b2, dad.b3)) +
+    ggtitle('Pontos por dia de coleta nas bases 2 e 3')
+```
+\newpage
+
+## Compartilhamento de FAMLÍAS entre as bases
+```{r}
+plotVenn(tipo = 'fam', c('Base_1', 'Base_2', 'Base_3'), category = 
+             c("Base 1", "Base 2", "Base 3"), 
+         lty = "blank", fill = c("skyblue", "pink1", "mediumorchid"))
+```
+
+\newpage
+
+## Compartilhamento de GÊNEROS entre as bases
+```{r}
+plotVenn(tipo = 'gen', c('Base_1', 'Base_2', 'Base_3'), category = 
+             c("Base 1", "Base 2", "Base 3"), 
+         lty = "blank", fill = c("skyblue", "pink1", "mediumorchid"))
+```
+
+\newpage
+
+## Compartilhamento de ESPÉCIES entre as bases
+```{r}
+plotVenn(tipo = 'spp', c('Base_1', 'Base_2', 'Base_3'), category = 
+             c("Base 1", "Base 2", "Base 3"), 
+         lty = "blank", fill = c("skyblue", "pink1", "mediumorchid"))
+```
+
+\newpage
+
+## Em construção
+
+Quero colocar aqui um plot sobre o quanto houve contribuição de novas (morfo)espécies por cada dia de coleta, isto é, o quanto de novo foi coletado a cada dia em comparação com os dias anteriores. Aqui é só o primeiro draft.
+
+\newpage
+
+````{r}
+knitr::kable(new.spp.angio)
+```
+\newpage
+
+# Panorama geral
+
+## Tipos vegetacionais
+
+### Base 1
+
+Florestas de ubim (*Geonoma* sp.), Marantaceae (qual gênero??). 
+Emergentes *Cedrelinga* sp.
+Abundância no sub-bosque de *Protium aracouchini* e *Protium calanense* vel aff., *Geonoma* spp., Marantaceae,
+Elevada diversidade de espécies de *Sloanea*
+
+### Base 2
+
+Florestas de *Chrysophyllum sanguinolentum* e *Dacryodes* sp.
+
+### Base 3
+
+floresta de altitude dominada por *Clusia* sp., *Ilex* sp., *Freziera roraimensis* sp., Orchidaceae spp., musgos e  epífitas em abundância
+
+## Elementos típicos de florestas de altitude na América do Sul
+
+*Ilex* sp., *Hedyosmum*, *Sterigmapetalum guianense*, *Freziera roraimensis* sp., Ericaceae spp.
+
+\newpage
+
+# Referências
+

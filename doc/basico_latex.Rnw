@@ -1,0 +1,111 @@
+\documentclass[12pt,a4paper]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+              % PREAMBULO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-----------------------------------------------------------
+%
+% PACOTES E FORMATACAO
+%
+%-----------------------------------------------------------
+
+%libera os acentos da lingua portuguesa
+\usepackage[portuguese]{babel}
+\usepackage[utf8]{inputenc}
+
+%permite simbolos matematicos
+\usepackage{amssymb}
+
+%permite inserir figuras
+\usepackage{graphicx}
+\graphicspath{{/Users/ricoperdiz/scripts/ola-latex/figures/}}
+
+%permite rotacionar pagina para landscape
+%\usepackage{pdflscape}
+
+%fonte do texto
+\usepackage{helvet}
+
+%-----------------------------------------------------------
+% Formatação
+%-----------------------------------------------------------
+\usepackage[a4paper]{geometry}
+
+%-----------------------------------------------------------
+% LEGENDAS DAS FIGURAS E TABELAS
+%-----------------------------------------------------------
+\usepackage{caption}
+\captionsetup[table]{skip=0pt}
+\captionsetup[figure]{skip=0pt}
+
+%-----------------------------------------------------------
+% CITAÇÃO E BIBLIOGRAFIA
+%-----------------------------------------------------------
+  % se usar o abnt, para citar o autor com data em parentese
+  % usar \citeonline
+%\usepackage[alf]{abntex2cite}
+  %se usar o natbib, tem que usar o \citet
+%\usepackage[colon,authoryear]{natbib}
+%\usepackage[nottoc,notlot,notlof,numbib]{tocbibind}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ----------------------------------------------------------
+              % FIM DO PREAMBULO
+% ----------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                  % DOCUMENTO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%-----------------------------------------------------------
+% estabelece parametros gerais para blocos de codigo
+%-----------------------------------------------------------
+
+<<setup, include=FALSE,message=FALSE,error=FALSE,warning=FALSE>>=
+library(knitr)
+library(xtable)
+library(readr)
+opts_chunk$set(results='asis')
+@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% TEXTO
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Locais de coleta na serra da Mocidade
+
+Coletamos em três bases na Serra da Mocidade em janeiro deste ano (\textbf{Figura \ref{fig:mapa_bases}}).
+
+\begin{figure}[h]
+\centering
+\caption{Localidades das distintas bases na Mocidade}
+\includegraphics[scale=0.4]{Rplot07.jpeg}
+\label{fig:mapa_bases}
+\end{figure}
+
+Apesar de recente, a viagem já rendeu duas novas espécies descritas de briófitas \cite{bastos2016}, coletadas na base 2.
+
+%-----------------------------------------------------------
+%%%%%%%%%      REFERÊNCIAS BIBLIOGRÁFICAS
+%
+%
+% Arquivo .bib com referencias
+%-----------------------------------------------------------
+\bibliographystyle{plain}
+%\bibliographystyle{apalike}
+\bibliography{/Users/ricoperdiz/scripts/ola-latex/doc/ola-latex}
+
+%-----------------------------------------------------------
+% fim do DOCUMENTO
+%-----------------------------------------------------------
+\end{document}

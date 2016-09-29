@@ -1,0 +1,172 @@
+\documentclass[12pt,a4paper]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+              % PREAMBULO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-----------------------------------------------------------
+%
+% PACOTES E FORMATACAO
+%
+%-----------------------------------------------------------
+
+%libera os acentos da lingua portuguesa
+\usepackage[portuguese]{babel}
+\usepackage[utf8]{inputenc}
+
+%permite simbolos matematicos
+\usepackage{amssymb}
+
+%permite inserir figuras
+\usepackage{graphicx}
+\graphicspath{{/Users/ricoperdiz/Documents/DOC/PROJETO_DOC/Dados_Complexo_Aracouchini/version_2.0/figures/doc/sanduiche/}{/Users/ricoperdiz/Documents/DOC/PROJETO_DOC/MAPAS/cpa_NY/figures/}}
+
+%permite rotacionar pagina para landscape
+%\usepackage{pdflscape}
+
+%fonte do texto
+\usepackage{helvet}
+
+%-----------------------------------------------------------
+% Formatação
+%-----------------------------------------------------------
+\usepackage[a4paper]{geometry}
+
+%-----------------------------------------------------------
+% LEGENDAS DAS FIGURAS E TABELAS
+%-----------------------------------------------------------
+\usepackage{caption}
+\captionsetup[table]{skip=0pt}
+\captionsetup[figure]{skip=1pt}
+
+%-----------------------------------------------------------
+% APÊNDICE
+%-----------------------------------------------------------
+\usepackage[toc,page]{appendix}
+
+%-----------------------------------------------------------
+% NÚMEROS E UNIDADES
+%-----------------------------------------------------------
+\usepackage{siunitx}
+
+%-----------------------------------------------------------
+% CITAÇÃO E BIBLIOGRAFIA
+%-----------------------------------------------------------
+  % se usar o abnt, para citar o autor com data em parentese
+  % usar \citeonline
+%\usepackage[alf]{abntex2cite}
+  %se usar o natbib, tem que usar o \citet
+\usepackage[colon,authoryear]{natbib}
+\usepackage[nottoc,notlot,notlof,numbib]{tocbibind}
+
+%-----------------------------------------------------------
+% COMANDOS CUSTOMIZADOS
+%-----------------------------------------------------------
+
+% Especie e abreviaçãoo
+\newcommand{\proarac}{\textit{Protium aracouchini}}
+\newcommand{\parac}{\textit{P.~aracouchini}}
+
+%\renewcommand{\bibname}{REFERÊNCIAS BIBLIOGRÁFICAS}
+\renewcommand\appendixtocname{Apêndices}
+\renewcommand\appendixpagename{Apêndices}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ----------------------------------------------------------
+              % FIM DO PREAMBULO
+% ----------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                  % DOCUMENTO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%-----------------------------------------------------------
+% estabelece parametros gerais para blocos de codigo
+%-----------------------------------------------------------
+<<setup, include=FALSE,message=FALSE,error=FALSE,warning=FALSE>>=
+library(knitr)
+library(xtable)
+library(readr)
+opts_chunk$set(results='asis')
+@
+%-----------------------------------------------------------
+% PÁGINA INICIAL
+%-----------------------------------------------------------
+\input{titlepage.Rnw}
+%-----------------------------------------------------------
+% FIM PAGINA INICIAL
+%-----------------------------------------------------------
+
+% sumario
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% TEXTO
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+
+% quem e o grupo aracouchini e o que ele tem de interessante 5
+Um  modelo promissor dentro da tribo Protieae é o \cpa{} (Aubl.) Marchand. Ele abrange quatro espécies formalmente descritas (\proarac{}, \procala{}  Cuatrec., \proeleg{}  Engl., \prolepto{} Cuatrec.) e um grupo de entidades ainda sem formalização taxonômica, com limites mal definidos entre cada linhagem,que apresentam ampla distribuição geográfica e ocorrem em variados hábitats em uma elevada amplitude altitudinal. As espécies descritas têm sido diferenciadas morfologicamente levando em consideração atributos como o comprimento de folíolos e frutos, presença de indumento no cálice, corola e ovário \citep{Cuatrecasas1957,Martinez1997,Daly2012b}. No entanto, há sobreposição morfológica entre esses atributos \citep{Cuatrecasas1957} e a variação encontrada sugere elevada plasticidade nos atributos vegetativos \citep{Daly2012b}. Por outro lado, os atributos reprodutivos demonstraram potencial na distinção dos táxons \citep{Cuatrecasas1957,Daly2012b}.
+
+\begin{figure}[h]
+\centering
+\caption{Mapa de distribuição geográfica do \cpa{} na região Neotropical}
+\includegraphics[scale=0.4]{mapa_cpa.pdf}
+\label{fig:cpa_dist_geo}
+\end{figure}
+
+A ampla distribuição geográfica na região Neotropical (\textbf{Figura \ref{fig:cpa_dist_geo}}) e preferências distintas por tipos de hábitat distintos são outros atributos do complexo. Soma-se a isso uma elevada amplitude altitudinal (\textbf{Figura \ref{fig:long_alt}}), apresentando populações que chegam a mais de 1500 metros sobre o nível do mar, habitando os contrafortes de montanhas no sul da Venezuela, vales interandinos na Colômbia, até florestas submontanas no domínio Atlântico. Esta ampla distribuição geográfica aliada à diversidade de hábitats e grande amplitude altitudinal em que os membros do complexo são encontrados pode obscurecer a existência de espécies crípticas, como observado em outros grupos de angiospermas (e.g., \citep{Kenfack2011,esteves2013}.
+
+\begin{figure}[h]
+   \centering
+   \caption{Relação entre variação longitudinal e altitudinal dentro do \cpa{} na região Neotropical}
+   \includegraphics[scale=0.6]{long_altitude_04.pdf}
+   \label{fig:long_alt}
+\end{figure}
+
+
+\section{Material e métodos}
+
+\begin{table}[hb]
+\centering
+\caption{Sumário}
+\label{tab:sumario}
+\bigskip
+  \begin{tabular}{|l|l|}
+  \hline
+  Amostras  &  Quantidade \\
+  \hline
+  Coletadas & 110\\
+  A coletar & 200\\
+    TOTAL & 310\\
+  \hline
+  \end{tabular}
+\end{table}
+
+
+
+\end{landscape}
+
+%-----------------------------------------------------------
+%%%%%%%%%      REFERÊNCIAS BIBLIOGRÁFICAS
+%
+%
+% Arquivo .bib com referencias
+%-----------------------------------------------------------
+%\bibliographystyle{plain}
+\bibliographystyle{apalike}
+\newpage
+\bibliography{/Users/ricoperdiz/Documents/CIENCIA/bibtex/cpa}
+
+%-----------------------------------------------------------
+% fim do DOCUMENTO
+%-----------------------------------------------------------
+\end{document}

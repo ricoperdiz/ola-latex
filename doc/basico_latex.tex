@@ -1,0 +1,157 @@
+\documentclass[12pt,a4paper]{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+              % PREAMBULO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-----------------------------------------------------------
+%
+% PACOTES E FORMATACAO
+%
+%-----------------------------------------------------------
+
+%libera os acentos da lingua portuguesa
+\usepackage[portuguese]{babel}
+\usepackage[utf8]{inputenc}
+
+%permite simbolos matematicos
+\usepackage{amssymb}
+
+%permite inserir figuras
+\usepackage{graphicx}
+\graphicspath{{/Users/ricoperdiz/scripts/ola-latex/figures/}}
+
+%permite rotacionar pagina para landscape
+%\usepackage{pdflscape}
+
+%fonte do texto
+\usepackage{helvet}
+
+%-----------------------------------------------------------
+% Formatação
+%-----------------------------------------------------------
+\usepackage[a4paper]{geometry}
+
+%-----------------------------------------------------------
+% LEGENDAS DAS FIGURAS E TABELAS
+%-----------------------------------------------------------
+\usepackage{caption}
+\captionsetup[table]{skip=0pt}
+\captionsetup[figure]{skip=0pt}
+
+%-----------------------------------------------------------
+% CITAÇÃO E BIBLIOGRAFIA
+%-----------------------------------------------------------
+  % se usar o abnt, para citar o autor com data em parentese
+  % usar \citeonline
+%\usepackage[alf]{abntex2cite}
+  %se usar o natbib, tem que usar o \citet
+%\usepackage[colon,authoryear]{natbib}
+%\usepackage[nottoc,notlot,notlof,numbib]{tocbibind}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ----------------------------------------------------------
+              % FIM DO PREAMBULO
+% ----------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                  % DOCUMENTO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+%-----------------------------------------------------------
+% estabelece parametros gerais para blocos de codigo
+%-----------------------------------------------------------
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% TEXTO
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Locais de coleta na serra da Mocidade
+
+Coletamos em três bases na Serra da Mocidade em janeiro deste ano (\textbf{Figura \ref{fig:mapa_bases}}).
+
+\begin{figure}[h]
+\centering
+\caption{Localidades das distintas bases na Mocidade}
+\includegraphics[scale=0.4]{Rplot07.jpeg}
+\label{fig:mapa_bases}
+\end{figure}
+
+Apesar de recente, a viagem já rendeu duas novas espécies descritas de briófitas \cite{bastos2016}, coletadas na base 2.
+
+%-----------------------------------------------------------
+%%%%%%%%%      REFERÊNCIAS BIBLIOGRÁFICAS
+%
+%
+% Arquivo .bib com referencias
+%-----------------------------------------------------------
+\bibliographystyle{plain}
+%\bibliographystyle{apalike}
+\bibliography{/Users/ricoperdiz/scripts/ola-latex/doc/ola-latex}
+
+%-----------------------------------------------------------
+% fim do DOCUMENTO
+%-----------------------------------------------------------
+\end{document}
