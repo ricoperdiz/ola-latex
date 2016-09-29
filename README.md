@@ -80,7 +80,7 @@ Desta forma,o primeiro passo é realizar um 'fork' neste repositório. Após ess
 
 1. Efetuar um 'fork' do repositório **ola-latex** em sua conta GitHub.
 1. Clonar o repositório **ola-latex** para seu computador.
-1. Alterar os arquivos e propor 
+1. Alterar os arquivos e propor mudanças.
 
 ### Como realizar um 'fork' do repositório?
 
@@ -128,4 +128,6 @@ git remote add upstream https://github.com/ricoperdiz/ola-latex.git
 ````
 
 ### Propondo mudanças ao repositório original
+
+EM CONSTRUÇÃO!
 
