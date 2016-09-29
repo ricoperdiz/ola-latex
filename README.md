@@ -94,11 +94,17 @@ Pronto! Você tem uma cópia deste repositório em sua página.
 
 1. Ao chegar no local desejado, antes de clonar o repositório, é necessário configurar o sistema para aceitar o proxy de nossa instituição. Para isso, digite os comandos abaixo:
 
+
+
+
+
+
+ATENÇÃO!!! Substitua os itens **NOMEdoUSUARIO**,**SENHA**,**PROXY**,**PORTA**, pelos valores correspondentes. Isso permitirá efetuarmos o passo seguinte.
+
 ````
 git config --global http.proxy http[s]://NOMEdoUSUARIO:SENHA@PROXY:PORTA
 ````
 
-Substitua os itens **NOMEdoUSUARIO**,**SENHA**,**PROXY**,**PORTA**, pelos valores respectivos. Isso permitirá efetuarmos o passo seguinte.
 
 1. Na página principal do repositório, busque e aperte o botão **Clone or download** e copie o endereço aí exposto.
 
